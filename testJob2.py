@@ -37,8 +37,8 @@
 
 # chromedriver_path = '/home/omar/Descargas/chromedriver2022'
 
-# PASSWORD = '123456'
-# USERNAME = 'email@mail.es'
+# PASSWORD = 'test'
+# USERNAME = 'test'
 
 # def load_instagram():
 #     """
@@ -69,7 +69,7 @@
     
 #     #Opening the browser and getting the url
 
-#     url = "https://www.instagram.com/"
+#     url = "https://www.instagram.com/p/B166OkVBPJR/"
 #     browser.get(url)
     
 #     #wait 5 seconds to load
@@ -213,95 +213,6 @@
 #     except Exception as e:
 #         print(f"ERROR - Could not save {url} - {e}")
         
-# def fetch_images(browser, first_time=True):
-#     """
-#     Function that fetchs images links from al posts
-    
-#     Variables:
-#         - browser: webdriver
-#             Used to manage browser functionalities
-#         - first_time: boolean
-#             Used to know if it first time scrapping the web, so that the first photo, a default one for the hashtag
-#             can be removed. This function is called several times depending on the maxium number of images,and, therefore,
-#             multiple scrolldown can be performed
-    
-#     """
-#     #select images
-#     images = browser.find_elements_by_tag_name('img')
-#     images = [image.get_attribute('src') for image in images]
-    
-#     if first_time:
-#         images = images[1:-2] #slicing-off first photo, IG logo and Profile picture
-#     else:    
-#         images = images[:-2] #slicing-off IG logo and Profile picture
-    
-#     return images        
-        
-        
-# def fetch_likes_comments(browser,images):
-#     """
-#     Function that fetchs comments and likes from posts
-    
-#     Variables:
-#         - browser: webdriver
-#             Used to manage browser functionalities
-#         - images: list
-#             A list of image urls used to click on posts
-#     """
-    
-#     likes_lst   = []
-#     comment_lst = []
-#     imag_error  = []
-#     counter = 0
-#     for image in images:
-#         try: 
-#             # Click and open posts 
-#             browser.execute_script("arguments[0].click();",
-#                                    browser.find_element_by_xpath('//img[@src="'+str(image)+'"]'))
-#             time.sleep(WAIT_TIME_5)
-            
-#             # Fetch comments and likes from the post clicked
-#             likes_lst   = fetch_likes(browser,likes_lst)  
-#             comment_lst = fetch_comments(browser,comment_lst)
-#         except Exception as e:
-#             print(f"ERROR - Could not fetch information from image {image} ---error: {e}")                                  
-#             imag_error.append(image)
-#             likes_lst   = ['Error']
-#             comment_lst = ['Error']
-            
-#     return [comment_lst,likes_lst,imag_error]
-
-
-# def fetch_likes(browser,likes_lst):
-#     """
-#     Function that fetchs likes from a post
-    
-#     """
-#     el_likes = "None"
-#     try:
-#         el_likes = browser.find_element_by_css_selector(".Nm9Fw > * > span").text
-                      
-#     except Exception as e:
-#         try:
-#             el_likes = browser.find_element_by_css_selector(".Nm9Fw > button").text
-        
-#         except Exception as e2:
-#             try:
-#                 el_likes = browser.find_element_by_css_selector(".vcOH2").text
-#             except Exception as e3:
-#                 print(f"ERROR - Could not fetch like  {e3}")  
-    
-#     # Transform the text when there are no Likes
-#     if el_likes == "indicar que te gusta esto":
-#         el_likes = '0'
-        
-#     # Clean the info to only retrieve numbers instead of text    
-#     if "Me gusta" in str(el_likes) or "reprodu" in str(el_likes):
-#         el_likes = el_likes[:1]
-        
-        
-#     likes_lst.append(el_likes)
-#     return likes_lst
 
 # def fetch_comments(browser,comment_lst):
 #     """
@@ -382,8 +293,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.select import Select
 
-PASSWORD = '0w7desd911konDios'
-USERNAME = 'omarmc665'
+PASSWORD = 'test'
+USERNAME = 'test'
 class usando_unittest(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
